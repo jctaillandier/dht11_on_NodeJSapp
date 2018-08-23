@@ -1,6 +1,11 @@
 // Robo India Tutorial 
 // Simple code upload the tempeature and humidity data using thingspeak.com
 // Hardware: NodeMCU,DHT11
+//DHT11 pin 1 (leftmost) in esp's Vin
+//DHT11 pin 2 to esp's D3
+//DHT11 pin 3 not connected
+//DHT11 pin 4 to esp's GND
+
 
 #include <DHT.h>  // Including library for dht
 
