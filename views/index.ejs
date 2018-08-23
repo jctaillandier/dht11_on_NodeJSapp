@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sensor Integration</title>
+</head>
+<body>
+    <h1>For all you creepers</h1>
+    <h2>Here is the temperature and humidity live in my room in Montreal</h2>
+
+    <h4>Current Temperature: <span><%= data[0] %></span> degrees Celcius</h4>
+    <h4>Current Humidity: <span><%= data[1] %></span>%</h4>
+
+    <form method='GET' action='/'>
+        <button>Refresh!</button>
+    </form>
+</body>
+</html>
