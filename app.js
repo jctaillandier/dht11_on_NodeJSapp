@@ -19,6 +19,7 @@ app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.use('/static', express.static(__dirname + '/public'));
+app.locals.moment = require('moment');
 
 app.get('/', function(req, res) {
   /////////////////single API request before rendering
@@ -31,6 +32,8 @@ app.get('/', function(req, res) {
     else{
       var parsedData = JSON.parse(body);
       data[0] = (parsedData.feeds[0].field1);
+      //time is UTC time (MTL+4)
+      data[1] = (parsedData.feeds[0].created_at);
     }
   });
   // Humidity
@@ -39,7 +42,8 @@ app.get('/', function(req, res) {
     if(err){console.log(err)}
     else{
       var parsedData2 = JSON.parse(body);
-      data[1] = (parsedData2.feeds[0].field2);
+      data[2] = (parsedData2.feeds[0].field2);
+      data[3] = (parsedData2.feeds[0].created_at);
     }
   });
   res.render('index', {data:data});
@@ -47,5 +51,5 @@ app.get('/', function(req, res) {
 
 
 
-app.listen(process.env.PORT, process.env.IP);
-//app.listen(3000);
+//app.listen(process.env.PORT, process.env.IP);
+app.listen(3000);
